@@ -9,7 +9,7 @@ export class Layer {
 	}
 	
 	draw(ctx) {
-		ctx.outline(0, 0, ctx.width, ctx.height, '#cccccc');
+		ctx.rectangle(0, 0, ctx.width, ctx.height, '#cccccc', 'stroke');
 		this.actors.forEach(a => {
 			a.draw(ctx);
 		});
