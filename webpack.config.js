@@ -4,8 +4,6 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require("webpack");
 
 module.exports = {
-	// context: "",
-	
 	entry: {
 		app: "./app"
 	},
@@ -31,12 +29,9 @@ module.exports = {
 	],
 	
 	module: {
-		
 		loaders: [{
 			test:	/\.js$/,
 			loader:	'babel'
 		}]
-		
 	}
-	
 };
