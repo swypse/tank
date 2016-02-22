@@ -1,6 +1,9 @@
 {
 	"author": "author",
 	"name": "tank",
+	"repository": "swypse/tank",
+	"license": "UNLICENSED",
+	"private": true,
 	"version": "0.0.1",
 	"dependencies": {
 		"babel-preset-es2015": "latest",
