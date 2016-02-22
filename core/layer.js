@@ -8,10 +8,10 @@ export class Layer {
 		this.actors.push(a);
 	}
 	
-	draw() {
-		console.log(`draw layer ${this.name}`);
+	draw(ctx) {
+		ctx.outline(0, 0, ctx.width, ctx.height, '#cccccc');
 		this.actors.forEach(a => {
-			a.draw();
+			a.draw(ctx);
 		});
 	}
 }

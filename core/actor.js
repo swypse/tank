@@ -1,9 +1,11 @@
 export class Actor {
-	constructor(name) {
+	constructor(name, x, y) {
 		this.name = name;
+		this.x = x;
+		this.y = y;
 	}
 	
-	draw() {
-		console.log(`draw actor ${this.name}`);
+	draw(ctx) {
+		ctx.rectangle(this.x, this.y, 10, 10, '#ff0000');
 	}
 }

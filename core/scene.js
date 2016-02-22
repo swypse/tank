@@ -10,10 +10,9 @@ export class Scene {
 		this.layers.push(l);
 	}
 	
-	draw() {
-		console.log("Render scene: " + this.name);
+	draw(ctx) {
 		this.layers.forEach(l => {
-			l.draw();
+			l.draw(ctx);
 		});
 	}
 }
