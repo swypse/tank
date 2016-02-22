@@ -8,8 +8,6 @@ var ui = new Ui("ui layer");
 var a = new Actor("actorname");
 ui.addActor(a);
 
-s.addLayer(ui);
-
 var s = new Scene("scenename");
-
+s.addLayer(ui);
 s.draw();
