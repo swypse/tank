@@ -4,7 +4,7 @@ import {Actor} from './core/actor';
 import {Context} from './core/context';
 
 
-var ui = new Ui("ui layer");
+var ui = new Ui("ui");
 
 var a = new Actor("actor", 10, 20);
 ui.addActor(a);
@@ -15,7 +15,7 @@ ui.addActor(a2);
 var a3 = new Actor("actor3", 100, 150);
 ui.addActor(a3);
 
-var s = new Scene("scenename");
+var s = new Scene("scene");
 s.addLayer(ui);
 
 var ctx = new Context(200, 200);
