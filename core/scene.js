@@ -15,7 +15,6 @@ export class Scene {
 	}
 	
 	draw(ctx) {
-		console.log("draw scene " + this.name);
 		this.obj.forEach(o => {
 			o.draw(ctx);
 		});

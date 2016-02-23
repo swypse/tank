@@ -1,11 +1,10 @@
 import {Scene} from './scene'
-
-var gameInterval = null,
-	gameSpeed = 1000;
+import {Loop} from './loop'
 
 export class Game {
 	constructor(name) {
 		this.name = name;
+		this.loop = new Loop(() => { this.update(); }, () => { this.draw(); });
 	}
 	
 	setScene(scene) {
@@ -17,11 +16,17 @@ export class Game {
 	}
 	
 	start() {
-		gameInterval = setInterval(() => { this.draw() }, gameSpeed);
+		this.loop.start();
+	}
+
+	stop() {
+		this.loop.stop();
+	}
+
+	update() {
 	}
 	
 	draw() {
 		this.scene.draw(this.ctx);
 	}
-	
 }

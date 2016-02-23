@@ -11,7 +11,6 @@ export class Actor {
 	}
 	
 	draw(ctx) {
-		console.log("draw actor " + this.name);
 		switch (this.primitiveType)
 		{
 			case 'rectangle':
