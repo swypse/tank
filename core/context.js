@@ -1,3 +1,5 @@
+'use strict';
+
 export class Context {
 	constructor(width, height) {
 		var canvas = document.createElement('canvas');

@@ -1,3 +1,5 @@
+'use strict';
+
 export class Actor {
 	constructor(name, x, y, width, height, primitiveType, color, drawingType) {
 		this.name = name;

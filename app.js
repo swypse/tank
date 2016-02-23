@@ -1,3 +1,5 @@
+'use strict';
+
 import {Scene} from './core/scene';
 import {Actor} from './core/actor';
 import {Context} from './core/context';

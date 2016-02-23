@@ -1,3 +1,5 @@
+'use strict';
+
 import {Scene} from './scene'
 import {Loop} from './loop'
 

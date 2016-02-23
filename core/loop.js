@@ -1,3 +1,5 @@
+'use strict';
+
 export class Loop {
 	constructor(updateCallback, renderCallback) {
 		this.simulationTimestep = 1000 / 60;

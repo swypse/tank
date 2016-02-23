@@ -1,4 +1,5 @@
 'use strict';
+
 import {_} from '../node_modules/underscore/underscore';
 
 export class Scene {
