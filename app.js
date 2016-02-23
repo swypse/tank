@@ -1,9 +1,9 @@
 'use strict';
 
-import {Scene} from './core/scene';
-import {Actor} from './core/actor';
-import {Context} from './core/context';
-import {Game} from './core/game';
+import {Scene} from './src/scene';
+import {Actor} from './src/actor';
+import {Context} from './src/context';
+import {Game} from './src/game';
 
 var g = new Game("Tanks");
 g.setContext(new Context(200, 200));
