@@ -1,18 +1,23 @@
 'use strict';
+import {_} from '../node_modules/underscore/underscore';
 
 export class Scene {
-	constructor(name) {
+	
+	constructor(name, objects) {
 		this.name = name;
-		this.layers = [];
+		this.obj = [];
+		if (objects) this.addObj(objects);
 	}
 	
-	addLayer(l) {
-		this.layers.push(l);
+	addObj(objects) {
+		if (!Array.isArray(objects)) objects = [objects];
+		this.obj = this.obj.concat(objects);
 	}
 	
 	draw(ctx) {
-		this.layers.forEach(l => {
-			l.draw(ctx);
+		console.log("draw scene " + this.name);
+		this.obj.forEach(o => {
+			o.draw(ctx);
 		});
 	}
 }

@@ -1,11 +1,12 @@
 {
-	"author": "author",
-	"name": "tank",
-	"version": "0.0.1",
-	"dependencies": {
-		"babel-preset-es2015": "latest",
-		"babel-loader": "latest",
-		"babel-core": "latest",
-		"webpack": "2.0.7-beta"
-	}
+  "author": "author",
+  "name": "tank",
+  "version": "0.0.1",
+  "dependencies": {
+    "babel-core": "latest",
+    "babel-loader": "latest",
+    "babel-preset-es2015": "latest",
+    "underscore": "^1.8.3",
+    "webpack": "2.0.7-beta"
+  }
 }
