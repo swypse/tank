@@ -19,7 +19,7 @@ export class Loop {
 
 	animate(timestamp) {
 		if (timestamp < this.lastFrameTimeMs + this.minFrameDelay) {
-			this.rafHandle = requestAnimationFrame(animate);
+			this.rafHandle = requestAnimationFrame(() => { this.animate(); });
 			return;
 		}
 
