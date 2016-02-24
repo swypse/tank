@@ -1,7 +1,10 @@
 {
-	"author": "author",
+	"author": "swypse",
 	"name": "tank",
 	"version": "0.0.1",
+	"repository": "swypse/tank",
+	"license": "UNLICENSED",
+	"private": true,
 	"dependencies": {
 		"babel-core": "latest",
 		"babel-loader": "latest",

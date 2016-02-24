@@ -1,4 +1,5 @@
 'use strict';
+
 import {_} from '../node_modules/underscore/underscore';
 
 export class Scene {
@@ -15,7 +16,6 @@ export class Scene {
 	}
 	
 	draw(ctx) {
-		console.log("draw scene " + this.name);
 		this.obj.forEach(o => {
 			o.draw(ctx);
 		});

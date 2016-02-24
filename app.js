@@ -27,4 +27,3 @@ var s = new Scene("scene", [a, a2, square, a4, complexObject]);
 
 g.setScene(s);
 g.start();
-
