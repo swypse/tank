@@ -1,9 +1,9 @@
-import {Scene} from './core/scene';
-import {Actor} from './core/actor';
-import {Square} from './core/actors/square';
-import {ComplexActor} from './core/actors/complexActor';
-import {Game} from './core/game';
-import {Renderer} from './core/renderer';
+import {Scene} from './src/scene';
+import {Actor} from './src/actor';
+import {Square} from './src/actors/square';
+import {ComplexActor} from './src/actors/complexActor';
+import {Game} from './src/game';
+import {Renderer} from './src/renderer';
 
 
 var renderer = new Renderer(800, 600);
