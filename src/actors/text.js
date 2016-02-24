@@ -8,4 +8,13 @@ export class Text extends Actor {
 		this.text = text;
 		this.font = font;
 	}
+	
+	update(controls) {
+		super.update(controls);
+		this.textUpdater(controls);
+	}
+	
+	setTextUpdater(textUpdater) {
+		this.textUpdater = textUpdater.bind(this);
+	}
 }

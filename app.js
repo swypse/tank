@@ -7,6 +7,7 @@ import {Game} from './src/game';
 import {randomCoordinatesUpdater} from './src/coordinatesUpdater/randomCoordinatesUpdater';
 import {mouseCoordinatesUpdater} from './src/coordinatesUpdater/mouseCoordinatesUpdater';
 import {keyboardCoordinatesUpdater} from './src/coordinatesUpdater/keyboardCoordinatesUpdater';
+import {fpsTextUpdater} from './src/textUpdater/fpsTextUpdater';
 import {Renderer} from './src/renderer';
 
 
@@ -31,6 +32,7 @@ complexObject.addComponents([
 ]);
 
 var text = new Text("fps", "0", 15, 15, "20px Arial", "black");
+text.setTextUpdater(fpsTextUpdater);
 
 var s = new Scene("scene", [a2, square, a4, complexObject, text]);
 

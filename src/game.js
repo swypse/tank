@@ -13,7 +13,10 @@ export class Game {
 
 		this.controls = {
 			mouse: new MouseControl(),
-			keyboard: new KeyboardControl()
+			keyboard: new KeyboardControl(),
+			gameInfo: {
+				fps: () => this.loop.fps
+			}
 		};
 	}
 
