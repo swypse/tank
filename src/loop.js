@@ -2,10 +2,10 @@
 
 export class Loop {
 	constructor(updateCallback, renderCallback) {
-		this.simulationTimestep = 1000 / 60;
 		this.frameDelta = 0;
 		this.lastFrameTimeMs = 0;
 		this.fps = 60;
+		this.simulationTimestep = 1000 / this.fps;
 		this.lastFpsUpdate = 0;
 		this.framesThisSecond = 0;
 		this.numUpdateSteps = 0;
@@ -21,10 +21,9 @@ export class Loop {
 
 	animate(timestamp) {
 		if (timestamp < this.lastFrameTimeMs + this.minFrameDelay) {
-			this.rafHandle = requestAnimationFrame(() => { this.animate(); });
+			this.rafHandle = requestAnimationFrame(timestamp => { this.animate(timestamp); });
 			return;
 		}
-
 		this.frameDelta += timestamp - this.lastFrameTimeMs;
 		this.lastFrameTimeMs = timestamp;
 
@@ -49,7 +48,7 @@ export class Loop {
 		this.renderCallback(this.frameDelta / this.simulationTimestep);
 		this.panic = false;
 
-		this.rafHandle = requestAnimationFrame(() => { this.animate(); });
+		this.rafHandle = requestAnimationFrame(timestamp => { this.animate(timestamp); });
 	}
 
 	start() {
@@ -63,7 +62,7 @@ export class Loop {
 				this.lastFpsUpdate = timestamp;
 				this.framesThisSecond = 0;
 
-				this.rafHandle = requestAnimationFrame(() => { this.animate(); });
+				this.rafHandle = requestAnimationFrame(timestamp => { this.animate(timestamp); });
 			});
 		}
 	}

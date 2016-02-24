@@ -10,7 +10,6 @@ export class Renderer {
 	render(scene) {
 		this.ctx.clearRect(0, 0, this.width, this.height);
 		scene.obj.forEach(actor => {
-			actor.update();
 			this.drawActor(actor);
 		});
 	}
@@ -21,7 +20,10 @@ export class Renderer {
 				width: this.width,
 				height: this.height,
 				x: 0,
-				y: 0
+				y: 0,
+				// fillColor
+				// strokeColor
+				// font ...
 			};
 		}
 		this.ctx.beginPath();
@@ -33,17 +35,22 @@ export class Renderer {
 	}
 
 	ComplexDrawer(actor, drawingContext) {
-		drawingContext.x = actor.x;
-		drawingContext.y = actor.y;
+		drawingContext.x = actor.coordinates.x;
+		drawingContext.y = actor.coordinates.y;
 		actor.components.forEach((a, i) => {
 			this.drawActor(a, drawingContext);
 		});
 	}
 
 	RectangleDrawer(actor, drawingContext) {
-		var x = drawingContext.x + actor.x,
-			y = drawingContext.y + actor.y;
+		var x = drawingContext.x + actor.coordinates.x,
+			y = drawingContext.y + actor.coordinates.y;
 		this.ctx.rect(x, y, actor.width, actor.height);
+	}
+
+	TextDrawer(actor) {
+		this.ctx.font = actor.font;
+		this.ctx.fillText(actor.text, actor.coordinates.x, actor.coordinates.y);
 	}
 
 	LineDrawer(actor) {
@@ -53,34 +60,28 @@ export class Renderer {
 	}
 
 	CircleDrawer(actor) {
-		var centerX = actor.x + actor.width / 2;
-		var centerY = actor.y + actor.height / 2;
-		this.ctx.arc(centerX, centerY, actor.width, 0, 2 * Math.PI);
-	}
-
-	SpriteDrawer(actor) {
-		var centerX = actor.x + actor.width / 2;
-		var centerY = actor.y + actor.height / 2;
+		var centerX = actor.coordinates.x + actor.width / 2;
+		var centerY = actor.coordinates.y + actor.height / 2;
 		this.ctx.arc(centerX, centerY, actor.width, 0, 2 * Math.PI);
 	}
 
 	EllipseDrawer(actor) {
 		var halfWidth = actor.width / 2,
 			halfHeight = actor.height / 2,
-			centerX = actor.x + halfWidth,
-			centerY = actor.y + halfHeight;
+			centerX = actor.coordinates.x + halfWidth,
+			centerY = actor.coordinates.y + halfHeight;
 
 		this.ctx.moveTo(centerX, centerY - halfHeight);
 		this.ctx.bezierCurveTo(
 			centerX + halfWidth, centerY - halfHeight,
 			centerX + halfWidth, centerY + halfHeight,
 			centerX, centerY + halfHeight
-		);
+			);
 		this.ctx.bezierCurveTo(
 			centerX - halfWidth, centerY + halfHeight,
 			centerX - halfWidth, centerY - halfHeight,
 			centerX, centerY - halfHeight
-		);
+			);
 	}
 
 	setDrawingStyle(actor) {
