@@ -1,27 +1,23 @@
 import {Scene} from './scene'
+import {Renderer} from './renderer';
 
 var gameInterval = null,
-	gameSpeed = 1000;
+	gameSpeed = 10;
 
 export class Game {
-	constructor(name) {
+	constructor(name, renderer) {
 		this.name = name;
+		this.renderer = renderer;
 	}
 	
 	setScene(scene) {
 		this.scene = scene;
 	}
 	
-	setContext(ctx) {
-		this.ctx = ctx;
-	}
-	
 	start() {
-		gameInterval = setInterval(() => { this.draw() }, gameSpeed);
-	}
-	
-	draw() {
-		this.scene.draw(this.ctx);
+		gameInterval = setInterval(() => { 
+			this.renderer.render(this.scene);
+		 }, gameSpeed);
 	}
 	
 }

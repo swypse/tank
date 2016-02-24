@@ -7,31 +7,31 @@ module.exports = {
 	entry: {
 		app: "./app"
 	},
-	
+
 	output: {
 		path: __dirname + "/build",
 		filename: "[name].js",
 		library: "[name]"
 	},
-	
+
 	watch: NODE_ENV == 'development',
-	
+
 	watchOptions: {
 		aggregateTimeout: 50
 	},
-	
+
 	devtool: NODE_ENV == 'development' ? 'source-map' : null,
-	
+
 	plugins: [
 		new webpack.DefinePlugin({
 			NODE_ENV: JSON.stringify(NODE_ENV)
 		})
 	],
-	
+
 	module: {
 		loaders: [{
-			test:	/\.js$/,
-			loader:	'babel'
+			test: /\.js$/,
+			loader: 'babel'
 		}]
 	}
 };

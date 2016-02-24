@@ -5,7 +5,12 @@
 	"dependencies": {
 		"babel-core": "latest",
 		"babel-loader": "latest",
+		"babel-plugin-transform-decorators": "latest",
+		"babel-plugin-transform-decorators-legacy": "^1.3.4",
 		"babel-preset-es2015": "latest",
+		"babel-preset-stage-0": "latest",
+		"babel-preset-stage-1": "latest",
+		"core-decorators": "^0.11.0",
 		"underscore": "^1.8.3",
 		"webpack": "2.0.7-beta"
 	}
