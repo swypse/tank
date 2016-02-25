@@ -9,9 +9,12 @@ export class Renderer {
 
 	render(scene) {
 		this.ctx.clearRect(0, 0, this.width, this.height);
+
 		scene.bg.forEach(actor => {
 			this.drawActor(actor);
 		});
+		
+		scene.touched = true;
 		scene.obj.forEach(actor => {
 			this.drawActor(actor);
 		});

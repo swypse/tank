@@ -10,6 +10,7 @@ export class Scene {
 		this.bg = [];
 		this.obj = [];
 		if (objects) this.addObj(objects);
+		
 	}
 	
 	addObj(objects) {
