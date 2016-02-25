@@ -15,9 +15,10 @@ export class Game {
 			mouse: new MouseControl(),
 			keyboard: new KeyboardControl(),
 			gameInfo: {
-				fps: () => this.loop.fps
+				fps: () => parseInt(this.loop.fps)
 			}
 		};
+		this.renderer.controls = this.controls;
 	}
 
 	setScene(scene) {

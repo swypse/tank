@@ -1,48 +1,28 @@
+import {_} from '../../node_modules/underscore/underscore';
+
 export class KeyboardControl {
-	constructor() {
-		this.up = false;
-		this.down = false;
-		this.left = false;
-		this.right = false;
-		this.space = false;
+	constructor(commands) {
+		if (!commands) {
+			commands = [
+				{ command: "left",  code: 37 },
+				{ command: "right", code: 39 },
+				{ command: "up",    code: 38 },
+				{ command: "down",  code: 40 },
+				{ command: "fire",  code: 32 }
+			];
+		}
 
 		document.addEventListener("keydown", (e) => {
-			switch (e.keyCode) {
-				case 37:
-					this.left = true;
-					break;
-				case 40:
-					this.down = true;
-					break;
-				case 38:
-					this.up = true;
-					break;
-				case 39:
-					this.right = true;
-					break;
-				case 32:
-					this.space = false;
-					break;
+			var x = _.findWhere(commands, { code: e.keyCode });
+			if (x) {
+				this[x.command] = true;
 			}
 		});
 
 		document.addEventListener("keyup", (e) => {
-			switch (e.keyCode) {
-				case 37:
-					this.left = false;
-					break;
-				case 40:
-					this.down = false;
-					break;
-				case 38:
-					this.up = false;
-					break;
-				case 39:
-					this.right = false;
-					break;
-				case 32:
-					this.space = false;
-					break;
+			var x = _.findWhere(commands, { code: e.keyCode });
+			if (x) {
+				this[x.command] = false;
 			}
 		});
 	}
