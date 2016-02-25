@@ -9,6 +9,9 @@ export class Renderer {
 
 	render(scene) {
 		this.ctx.clearRect(0, 0, this.width, this.height);
+		scene.bg.forEach(actor => {
+			this.drawActor(actor);
+		});
 		scene.obj.forEach(actor => {
 			this.drawActor(actor);
 		});
@@ -32,11 +35,15 @@ export class Renderer {
 		this.ctx.closePath();
 		this.ctx.fill();
 		this.ctx.stroke();
-		if (true && actor.primitiveType != "Text" && this.controls.keyboard.space) {
+		if (true && actor.primitiveType != "Text" && this.controls.keyboard.fire) {
 			this.ctx.fillStyle = "black";
 			this.ctx.font = "10px Arial";
 			this.ctx.fillText(`(${actor.position.x}, ${actor.position.y})`, actor.position.x, actor.position.y);
 		}
+	}
+
+	BgTileDrawer(actor, drawingContext) {
+		this.ctx.rect(actor.position.x, actor.position.y, actor.width, actor.height);
 	}
 
 	ComplexDrawer(actor, drawingContext) {
