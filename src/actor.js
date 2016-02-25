@@ -20,12 +20,6 @@ export class Actor {
 	
 	update(controls) {
 		this.positionUpdater(controls);
-		
-		// check if can move
-		if(this.position.moveX)
-			this.position.x += this.position.moveX * this.position.speed;
-		if(this.position.moveY)
-			this.position.y += this.position.moveY * this.position.speed;
 	}
 	
 	setPositionUpdater(positionUpdater) {
