@@ -18,7 +18,7 @@ var g = new Game("Tanks", renderer);
 var a2 = new Actor("actor2", 70, 10, 20, 20, 'Rectangle', '#00ff00');
 a2.setPositionUpdater(mousePositionUpdater);
 
-var a4 = new Actor("actor4", 160, 50, 40, 40, 'Circle', 'red');
+var a4 = new Actor("actor4", 160, 50, 40, 40, 'Rectangle', 'red');
 a4.setPositionUpdater(keyboardPositionUpdater);
 
 var square = new Square("Square", 100, 30, 30, '#eee', '#0000ff');
@@ -34,7 +34,12 @@ complexObject.addComponents([
 var text = new Text("fps", "0", 760, 25, "16px Arial", "black");
 text.setTextUpdater(fpsTextUpdater);
 
-var s = new Scene("scene", [a2, square, a4, complexObject, text]);
+var topBorder = new Actor("topBorder", 0, -1, renderer.width, 1, 'Rectangle', '#000000');
+var bottomBorder = new Actor("bottomBorder", 0, renderer.height, renderer.width, 1, 'Rectangle', '#000000');
+var leftBorder = new Actor("leftBorder", -1, 0, 1, renderer.height, 'Rectangle', '#000000');
+var rightBorder = new Actor("rightBorder", renderer.width, 0, 1, renderer.height, 'Rectangle', '#000000');
+
+var s = new Scene("scene", [a2, square, a4, complexObject, text, topBorder, bottomBorder, leftBorder, rightBorder]);
 
 s.setBgFromMap([
 	[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
