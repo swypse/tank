@@ -4,7 +4,8 @@ export class Actor {
 		this.position = {
 			x: x,
 			y: y,
-			speed: 3,
+			speedX: 1,
+			speedY: 1,
 			moveX: 0, // -1 0 1
 			moveY: 0
 		};

@@ -5,16 +5,16 @@ var types = [
 		fillStyle: "red", strokeStyle: ""
 	},
 	{
-		fillStyle: "#f6f6f6", strokeStyle: ""
+		fillStyle: "#333", strokeStyle: ""
 	},
 	{
-		fillStyle: "#ddd", strokeStyle: ""
+		fillStyle: "#444", strokeStyle: ""
 	},
 	{
-		fillStyle: "#eee", strokeStyle: ""
+		fillStyle: "#222", strokeStyle: ""
 	},
 	{
-		fillStyle: "#eee", strokeStyle: ""
+		fillStyle: "#234", strokeStyle: ""
 	},
 	{
 		fillStyle: "#282", strokeStyle: ""

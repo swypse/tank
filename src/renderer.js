@@ -5,6 +5,8 @@ export class Renderer {
 		this.height = canvas.height = h;
 		document.body.appendChild(canvas);
 		this.ctx = canvas.getContext('2d');
+		this.ctx.mozImageSmoothingEnabled = false;
+		this.ctx.imageSmoothingEnabled = false;
 	}
 
 	render(scene) {
@@ -13,7 +15,7 @@ export class Renderer {
 		scene.bg.forEach(actor => {
 			this.drawActor(actor);
 		});
-		
+
 		scene.touched = true;
 		scene.obj.forEach(actor => {
 			this.drawActor(actor);
@@ -43,6 +45,18 @@ export class Renderer {
 			this.ctx.font = "10px Arial";
 			this.ctx.fillText(`(${actor.position.x}, ${actor.position.y})`, actor.position.x, actor.position.y);
 		}
+	}
+
+	MainSpriteDrawer(actor, drawingContext) {
+		var frame = actor.frameResolver.resolve(actor, this.controls);
+		if (!frame) {
+			// иногда фрейм пут, не знаю еще, почему.
+			// пока предыдущий показываю.
+			frame = actor.preparedFrames[actor.previousDirection][0];
+			if (!frame) return;
+		}
+		this.ctx.drawImage(actor.img, frame.x, frame.y, frame.width,
+			frame.height, actor.position.x, actor.position.y, actor.width, actor.height);
 	}
 
 	BgTileDrawer(actor, drawingContext) {
